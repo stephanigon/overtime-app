@@ -18,4 +18,5 @@ x AdminUser -> STI
 - Bootstrap -> formatting
 
 ## Refactor TODOS:
+- Add full name for users
 - Refactor user association integration test in post_spec
