@@ -5391,3 +5391,738 @@ Processing by Admin::AdminUsersController#new as HTML
   Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_flashes.html.erb (0.1ms)
   Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_javascript.html.erb (20.7ms)
 Completed 200 OK in 356ms (Views: 347.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin/admin_users/new" for ::1 at 2016-12-27 13:30:45 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Admin::AdminUsersController#new as HTML
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+NameError (uninitialized constant Administrate::BaseDashboard):
+  app/dashboards/admin_user_dashboard.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (139.6ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (70.6ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (140.8ms)
+
+
+Started GET "/admin/admin_users/new" for ::1 at 2016-12-27 13:32:12 -0700
+Processing by Admin::AdminUsersController#new as HTML
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_form.html.erb (11.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_form.html.erb (0.9ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_form.html.erb (0.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_form.html.erb (0.4ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_form.html.erb (0.4ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_form.html.erb (31.3ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/new.html.erb within layouts/administrate/application (42.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_stylesheet.html.erb (287.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_sidebar.html.erb (6.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_flashes.html.erb (0.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_javascript.html.erb (29.4ms)
+Completed 200 OK in 479ms (Views: 430.9ms | ActiveRecord: 4.4ms)
+
+
+Started POST "/admin/admin_users" for ::1 at 2016-12-27 13:32:16 -0700
+Processing by Admin::AdminUsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vpCL2bGzXBMhsYoz7bQFQjDVVn/TbH/1HqHpvL8Zy5l+Mi+mDe+sDRiuDlKVicEq0tXRmqroal2pg5A7zQOBQw==", "admin_user"=>{"email"=>"", "password"=>"[FILTERED]", "first_name"=>"", "last_name"=>"", "type"=>"AdminUser"}, "commit"=>"Create Admin user"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_form.html.erb (0.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_form.html.erb (0.6ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_form.html.erb (0.4ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_form.html.erb (0.4ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_form.html.erb (0.4ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_form.html.erb (20.6ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/new.html.erb within layouts/administrate/application (35.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_stylesheet.html.erb (14.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_sidebar.html.erb (1.6ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_flashes.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_javascript.html.erb (19.6ms)
+Completed 200 OK in 141ms (Views: 136.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/admin/admin_users" for ::1 at 2016-12-27 13:33:19 -0700
+Processing by Admin::AdminUsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vpCL2bGzXBMhsYoz7bQFQjDVVn/TbH/1HqHpvL8Zy5l+Mi+mDe+sDRiuDlKVicEq0tXRmqroal2pg5A7zQOBQw==", "admin_user"=>{"email"=>"", "password"=>"[FILTERED]", "first_name"=>"", "last_name"=>"", "type"=>"AdminUser"}, "commit"=>"Create Admin user"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_form.html.erb (0.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_form.html.erb (0.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_form.html.erb (0.4ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_form.html.erb (0.3ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_form.html.erb (0.4ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_form.html.erb (16.8ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/new.html.erb within layouts/administrate/application (26.8ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_stylesheet.html.erb (14.9ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_sidebar.html.erb (3.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_flashes.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_javascript.html.erb (18.8ms)
+Completed 200 OK in 158ms (Views: 131.7ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/admin/admin_users" for ::1 at 2016-12-27 13:33:21 -0700
+Processing by Admin::AdminUsersController#index as HTML
+  [1m[35mAdminUser Load (1.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."type" IN ('AdminUser') LIMIT 20 OFFSET 0
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_collection.html.erb (6.0ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."type" IN ('AdminUser')[0m
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/index.html.erb within layouts/administrate/application (26.9ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_stylesheet.html.erb (14.4ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_sidebar.html.erb (1.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_flashes.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_javascript.html.erb (21.7ms)
+Completed 200 OK in 134ms (Views: 130.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/admin/admin_users?direction=asc&order=posts" for ::1 at 2016-12-27 13:33:24 -0700
+Processing by Admin::AdminUsersController#index as HTML
+  Parameters: {"direction"=>"asc", "order"=>"posts"}
+  [1m[35mAdminUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."type" IN ('AdminUser') LIMIT 20 OFFSET 0
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_collection.html.erb (3.5ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."type" IN ('AdminUser')[0m
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/index.html.erb within layouts/administrate/application (19.9ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_stylesheet.html.erb (14.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_sidebar.html.erb (1.9ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_flashes.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_javascript.html.erb (18.9ms)
+Completed 200 OK in 122ms (Views: 120.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/administrate/sort_arrow-fa394a48ea98604f286cb0059d4c84b6a3acb43645b159bbe499ac7cf741a524.svg" for ::1 at 2016-12-27 13:33:24 -0700
+
+
+Started GET "/admin/admin_users?direction=desc&order=posts" for ::1 at 2016-12-27 13:33:27 -0700
+Processing by Admin::AdminUsersController#index as HTML
+  Parameters: {"direction"=>"desc", "order"=>"posts"}
+  [1m[35mAdminUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."type" IN ('AdminUser') LIMIT 20 OFFSET 0
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_collection.html.erb (4.0ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."type" IN ('AdminUser')[0m
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/index.html.erb within layouts/administrate/application (21.4ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_stylesheet.html.erb (39.7ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_sidebar.html.erb (1.7ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_flashes.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_javascript.html.erb (27.8ms)
+Completed 200 OK in 155ms (Views: 153.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/admin_users?direction=asc&order=posts" for ::1 at 2016-12-27 13:33:29 -0700
+Processing by Admin::AdminUsersController#index as HTML
+  Parameters: {"direction"=>"asc", "order"=>"posts"}
+  [1m[35mAdminUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."type" IN ('AdminUser') LIMIT 20 OFFSET 0
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_collection.html.erb (3.8ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."type" IN ('AdminUser')[0m
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/index.html.erb within layouts/administrate/application (22.8ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_stylesheet.html.erb (18.3ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_sidebar.html.erb (1.8ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_flashes.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_javascript.html.erb (26.7ms)
+Completed 200 OK in 135ms (Views: 133.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/admin_users?direction=desc&order=posts" for ::1 at 2016-12-27 13:33:30 -0700
+Processing by Admin::AdminUsersController#index as HTML
+  Parameters: {"direction"=>"desc", "order"=>"posts"}
+  [1m[35mAdminUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."type" IN ('AdminUser') LIMIT 20 OFFSET 0
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_collection.html.erb (3.9ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."type" IN ('AdminUser')[0m
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/index.html.erb within layouts/administrate/application (20.8ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_stylesheet.html.erb (21.8ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_sidebar.html.erb (1.4ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_flashes.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_javascript.html.erb (22.7ms)
+Completed 200 OK in 165ms (Views: 163.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/admin_users" for ::1 at 2016-12-27 13:35:03 -0700
+Processing by Admin::AdminUsersController#index as HTML
+  [1m[35mAdminUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."type" IN ('AdminUser') LIMIT 20 OFFSET 0
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_collection.html.erb (2.9ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."type" IN ('AdminUser')[0m
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/index.html.erb within layouts/administrate/application (24.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_stylesheet.html.erb (20.6ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_sidebar.html.erb (1.7ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_flashes.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_javascript.html.erb (31.5ms)
+Completed 200 OK in 147ms (Views: 144.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/posts" for ::1 at 2016-12-27 13:35:04 -0700
+Processing by Admin::PostsController#index as HTML
+  [1m[35mPost Load (0.8ms)[0m  SELECT  "posts".* FROM "posts" LIMIT 20 OFFSET 0
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (1.6ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.3ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.3ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_collection.html.erb (252.1ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/index.html.erb within layouts/administrate/application (295.8ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_stylesheet.html.erb (17.6ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_sidebar.html.erb (1.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_flashes.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_javascript.html.erb (24.3ms)
+Completed 200 OK in 415ms (Views: 407.6ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/admin/admin_users" for ::1 at 2016-12-27 13:35:05 -0700
+Processing by Admin::AdminUsersController#index as HTML
+  [1m[35mAdminUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."type" IN ('AdminUser') LIMIT 20 OFFSET 0
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_collection.html.erb (3.4ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."type" IN ('AdminUser')[0m
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/index.html.erb within layouts/administrate/application (24.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_stylesheet.html.erb (20.8ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_sidebar.html.erb (1.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_flashes.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_javascript.html.erb (28.2ms)
+Completed 200 OK in 139ms (Views: 137.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admin/admin_users/new" for ::1 at 2016-12-27 13:35:07 -0700
+Processing by Admin::AdminUsersController#new as HTML
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_form.html.erb (0.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_form.html.erb (0.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_form.html.erb (0.4ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_form.html.erb (0.4ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_form.html.erb (0.3ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_form.html.erb (15.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/new.html.erb within layouts/administrate/application (29.4ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_stylesheet.html.erb (13.6ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_sidebar.html.erb (1.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_flashes.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_javascript.html.erb (19.7ms)
+Completed 200 OK in 134ms (Views: 133.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/admin_users" for ::1 at 2016-12-27 13:36:08 -0700
+Processing by Admin::AdminUsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"h/57y1KVOIP+CpDqEXOAotLaI9jGv/cO2ln7FfcRHaxHXN+07snInccVFItpTkTKMNqkPb874qZte4KShQtXdg==", "admin_user"=>{"email"=>"myadmin@user.com", "password"=>"[FILTERED]", "first_name"=>"Stephani", "last_name"=>"Gonzalez", "type"=>"AdminUser"}, "commit"=>"Create Admin user"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'myadmin@user.com' LIMIT 1[0m
+  [1m[35mSQL (10.6ms)[0m  INSERT INTO "users" ("type", "email", "encrypted_password", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["type", "AdminUser"], ["email", "myadmin@user.com"], ["encrypted_password", "$2a$11$4dsD49kluqVidxrqmX4rWeTWCpBqRvfTkcQSHYnWY71roh5l3UkOa"], ["first_name", "Stephani"], ["last_name", "Gonzalez"], ["created_at", "2016-12-27 20:36:08.404877"], ["updated_at", "2016-12-27 20:36:08.404877"]]
+  [1m[36m (9.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/admin_users/2
+Completed 302 Found in 257ms (ActiveRecord: 20.9ms)
+
+
+Started GET "/admin/admin_users/2" for ::1 at 2016-12-27 13:36:08 -0700
+Processing by Admin::AdminUsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mAdminUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."type" IN ('AdminUser') AND "users"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_show.html.erb (0.3ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_show.html.erb (0.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_show.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_show.html.erb (0.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_show.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_show.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_show.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_show.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_show.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_show.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_show.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_show.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/show.html.erb within layouts/administrate/application (45.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_stylesheet.html.erb (16.6ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_sidebar.html.erb (2.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_flashes.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_javascript.html.erb (20.3ms)
+Completed 200 OK in 159ms (Views: 153.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/admin_users/2" for ::1 at 2016-12-27 13:43:53 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Admin::AdminUsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mAdminUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."type" IN ('AdminUser') AND "users"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_show.html.erb (0.3ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_show.html.erb (0.3ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_show.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_show.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_show.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_show.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_show.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_show.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_show.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_show.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_show.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_show.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/show.html.erb within layouts/administrate/application (48.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_stylesheet.html.erb (305.3ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_sidebar.html.erb (6.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_flashes.html.erb (0.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_javascript.html.erb (36.2ms)
+Completed 200 OK in 517ms (Views: 469.4ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-12-27 13:43:56 -0700
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" LIMIT 20 OFFSET 0[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1  [["user_id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/has_many/_index.html.erb (2.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.3ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.3ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.0ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/has_many/_index.html.erb (1.4ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_collection.html.erb (51.0ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/index.html.erb within layouts/administrate/application (75.3ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_stylesheet.html.erb (27.8ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_sidebar.html.erb (1.8ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_flashes.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_javascript.html.erb (33.5ms)
+Completed 200 OK in 207ms (Views: 202.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/admin/users/new" for ::1 at 2016-12-27 13:43:59 -0700
+Processing by Admin::UsersController#new as HTML
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_form.html.erb (13.9ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_form.html.erb (0.9ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_form.html.erb (0.8ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_form.html.erb (0.7ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_form.html.erb (35.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/new.html.erb within layouts/administrate/application (47.3ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_stylesheet.html.erb (26.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_sidebar.html.erb (9.7ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_flashes.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_javascript.html.erb (19.3ms)
+Completed 200 OK in 169ms (Views: 168.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-12-27 13:46:55 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Admin::UsersController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" LIMIT 20 OFFSET 0
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/has_many/_index.html.erb (5.9ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.4ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.3ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.0ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1  [["user_id", 2]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/has_many/_index.html.erb (1.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_collection.html.erb (90.9ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/index.html.erb within layouts/administrate/application (385.4ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_stylesheet.html.erb (21.3ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_sidebar.html.erb (2.4ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_flashes.html.erb (0.7ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_javascript.html.erb (38.4ms)
+Completed 200 OK in 542ms (Views: 518.1ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/admin/users/new" for ::1 at 2016-12-27 13:47:00 -0700
+Processing by Admin::UsersController#new as HTML
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_form.html.erb (8.9ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_form.html.erb (1.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_form.html.erb (0.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_form.html.erb (0.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_form.html.erb (31.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/new.html.erb within layouts/administrate/application (45.3ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_stylesheet.html.erb (19.7ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_sidebar.html.erb (2.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_flashes.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_javascript.html.erb (34.3ms)
+Completed 200 OK in 173ms (Views: 172.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/users" for ::1 at 2016-12-27 13:47:10 -0700
+Processing by Admin::UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Kn60IOjR0A5NoRpE1OPE7ZxLUMy1gUsk/oyyZJryETPq3BBfVI0gEHS+niWs3gCFfkvXKcwFXoxJrsvj6Ohb6Q==", "user"=>{"email"=>"regular@user.com", "password"=>"[FILTERED]", "first_name"=>"sarah", "last_name"=>"gonzalez"}, "commit"=>"Create User"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.9ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'regular@user.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["email", "regular@user.com"], ["encrypted_password", "$2a$11$1n8hcwLhUImp1ihAzxL7eO8Y14AewOUQ6jqoxGHrvJlFCkmM5WdNW"], ["first_name", "sarah"], ["last_name", "gonzalez"], ["created_at", "2016-12-27 20:47:10.317183"], ["updated_at", "2016-12-27 20:47:10.317183"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/users/3
+Completed 302 Found in 151ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/admin/users/3" for ::1 at 2016-12-27 13:47:10 -0700
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "posts" WHERE "posts"."user_id" = $1 LIMIT 5) subquery_for_count[0m  [["user_id", 3]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/has_many/_show.html.erb (4.8ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_show.html.erb (0.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_show.html.erb (0.3ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_show.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_show.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_show.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_show.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_show.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_show.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_show.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_show.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_show.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_show.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/show.html.erb within layouts/administrate/application (43.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_stylesheet.html.erb (17.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_sidebar.html.erb (1.9ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_flashes.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_javascript.html.erb (19.6ms)
+Completed 200 OK in 165ms (Views: 158.5ms | ActiveRecord: 0.8ms)
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "regular@user.com"]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "regular@user.com"]]
+
+
+Started GET "/admin/users/3" for ::1 at 2016-12-27 13:53:59 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "posts" WHERE "posts"."user_id" = $1 LIMIT 5) subquery_for_count[0m  [["user_id", 3]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/has_many/_show.html.erb (4.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_show.html.erb (0.3ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_show.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_show.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_show.html.erb (0.3ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_show.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_show.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_show.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_show.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_show.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_show.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_show.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_show.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/show.html.erb within layouts/administrate/application (68.8ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_stylesheet.html.erb (306.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_sidebar.html.erb (3.3ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_flashes.html.erb (0.6ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_javascript.html.erb (36.5ms)
+Completed 200 OK in 529ms (Views: 488.7ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/admin/posts" for ::1 at 2016-12-27 13:54:04 -0700
+Processing by Admin::PostsController#index as HTML
+  [1m[35mPost Load (0.5ms)[0m  SELECT  "posts".* FROM "posts" LIMIT 20 OFFSET 0
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.8ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.3ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (1.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.6ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.3ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.3ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.6ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.4ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/belongs_to/_index.html.erb (0.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/date_time/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/text/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_collection.html.erb (280.6ms)
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/index.html.erb within layouts/administrate/application (341.6ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_stylesheet.html.erb (27.8ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_sidebar.html.erb (2.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_flashes.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_javascript.html.erb (39.8ms)
+Completed 200 OK in 485ms (Views: 479.9ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-12-27 13:54:15 -0700
+Processing by Admin::UsersController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" LIMIT 20 OFFSET 0
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/has_many/_index.html.erb (1.7ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.3ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.0ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1  [["user_id", 2]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/has_many/_index.html.erb (1.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.0ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/has_many/_index.html.erb (1.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_collection.html.erb (51.6ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/index.html.erb within layouts/administrate/application (68.7ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_stylesheet.html.erb (13.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_sidebar.html.erb (1.4ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_flashes.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_javascript.html.erb (20.4ms)
+Completed 200 OK in 172ms (Views: 169.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/admin/users?direction=asc&order=type" for ::1 at 2016-12-27 13:55:08 -0700
+Processing by Admin::UsersController#index as HTML
+  Parameters: {"direction"=>"asc", "order"=>"type"}
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."type" ASC LIMIT 20 OFFSET 0[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1  [["user_id", 2]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/has_many/_index.html.erb (1.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.0ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/has_many/_index.html.erb (1.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.0ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1  [["user_id", 3]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/has_many/_index.html.erb (0.8ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_collection.html.erb (40.3ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/index.html.erb within layouts/administrate/application (57.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_stylesheet.html.erb (14.3ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_sidebar.html.erb (1.3ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_flashes.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_javascript.html.erb (23.9ms)
+Completed 200 OK in 165ms (Views: 161.8ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/admin/users?direction=desc&order=type" for ::1 at 2016-12-27 13:55:10 -0700
+Processing by Admin::UsersController#index as HTML
+  Parameters: {"direction"=>"desc", "order"=>"type"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."type" DESC LIMIT 20 OFFSET 0
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/has_many/_index.html.erb (0.9ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.0ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1  [["user_id", 3]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/has_many/_index.html.erb (1.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.0ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/has_many/_index.html.erb (0.9ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_collection.html.erb (41.5ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/index.html.erb within layouts/administrate/application (61.9ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_stylesheet.html.erb (14.7ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_sidebar.html.erb (1.3ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_flashes.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_javascript.html.erb (22.1ms)
+Completed 200 OK in 168ms (Views: 164.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/admin/users?direction=asc&order=type" for ::1 at 2016-12-27 13:55:10 -0700
+Processing by Admin::UsersController#index as HTML
+  Parameters: {"direction"=>"asc", "order"=>"type"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."type" ASC LIMIT 20 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1  [["user_id", 2]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/has_many/_index.html.erb (0.9ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.0ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/has_many/_index.html.erb (0.9ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.0ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1  [["user_id", 3]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/has_many/_index.html.erb (0.9ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_collection.html.erb (40.8ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/index.html.erb within layouts/administrate/application (58.2ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_stylesheet.html.erb (14.9ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_sidebar.html.erb (1.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_flashes.html.erb (0.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_javascript.html.erb (20.1ms)
+Completed 200 OK in 167ms (Views: 164.5ms | ActiveRecord: 1.7ms)
