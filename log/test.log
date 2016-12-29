@@ -17111,3 +17111,525 @@ Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.0ms)
   [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Jon"], ["last_name", "Snow"], ["email", "test29@example.com"], ["encrypted_password", "$2a$04$KnZ8JG6fC7KJykO72a18H.zfL2vnfCodkTiuhJCE2Ehu9gJ33Awiy"], ["created_at", "2016-12-29 20:21:00.111388"], ["updated_at", "2016-12-29 20:21:00.111388"]]
   [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
   [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.6ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL
+  [1m[36m (2.4ms)[0m  [1m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+            tablename <> 'schema_migrations' AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (1.9ms)[0m  select table_name from information_schema.views where table_schema = 'Overtime_test'
+  [1m[36m (45.2ms)[0m  [1mTRUNCATE TABLE "public"."users", "public"."ar_internal_metadata", "public"."posts" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (1.6ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Started GET "/admin" for 127.0.0.1 at 2016-12-29 14:04:10 -0700
+Processing by Admin::UsersController#index as HTML
+Completed 401 Unauthorized in 17ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-12-29 14:04:10 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (20.9ms)
+  Rendered shared/_nav.html.erb (1.0ms)
+Completed 200 OK in 430ms (Views: 416.9ms | ActiveRecord: 2.7ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.8ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'test1@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Jon"], ["last_name", "Snow"], ["email", "test1@example.com"], ["encrypted_password", "$2a$04$w55yIR0zaPZmj6AXVvLqq.TyW4WKOJqhw9eJRD7jy3UCA0XV.Wbcy"], ["created_at", "2016-12-29 21:04:11.344219"], ["updated_at", "2016-12-29 21:04:11.344219"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/admin" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["last_sign_in_at", "2016-12-29 21:04:11.348805"], ["current_sign_in_at", "2016-12-29 21:04:11.348805"], ["last_sign_in_ip", "127.0.0.1/32"], ["current_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2016-12-29 21:04:11.349654"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Admin::UsersController#index as HTML
+Redirected to http://www.example.com/
+Filter chain halted as :authenticate_admin rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+Processing by StaticController#homepage as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered static/homepage.html.erb within layouts/application (0.6ms)
+  Rendered shared/_nav.html.erb (0.4ms)
+Completed 200 OK in 13ms (Views: 9.9ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'test2@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("type", "first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["type", "AdminUser"], ["first_name", "Admin"], ["last_name", "User"], ["email", "test2@example.com"], ["encrypted_password", "$2a$04$k/VWoXQvQh6F6O5JaNHAb.547NW/NmIVr1mux7yU0nBRVAbtmNwmm"], ["created_at", "2016-12-29 21:04:11.394111"], ["updated_at", "2016-12-29 21:04:11.394111"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/admin" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["last_sign_in_at", "2016-12-29 21:04:11.397024"], ["current_sign_in_at", "2016-12-29 21:04:11.397024"], ["last_sign_in_ip", "127.0.0.1/32"], ["current_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2016-12-29 21:04:11.397647"], ["id", 2]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" LIMIT 20 OFFSET 0[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1  [["user_id", 2]]
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/has_many/_index.html.erb (2.7ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/number/_index.html.erb (0.4ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/fields/string/_index.html.erb (0.0ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_collection.html.erb (43.4ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/index.html.erb within layouts/administrate/application (65.1ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_stylesheet.html.erb (1.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_sidebar.html.erb (2.5ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_flashes.html.erb (0.6ms)
+  Rendered /Users/stephanigonzalez/.rvm/gems/ruby-2.3.1/gems/administrate-0.2.2/app/views/administrate/application/_javascript.html.erb (1.4ms)
+Completed 200 OK in 156ms (Views: 136.2ms | ActiveRecord: 2.8ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'test3@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("type", "first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["type", "AdminUser"], ["first_name", "Admin"], ["last_name", "User"], ["email", "test3@example.com"], ["encrypted_password", "$2a$04$.OWAZ.DfwuXRwXgBzaKS8.qSlA1IQ9/Q6fe7zLhwBE9ehsTxGn5Ju"], ["created_at", "2016-12-29 21:04:11.563876"], ["updated_at", "2016-12-29 21:04:11.563876"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'test4@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Jon"], ["last_name", "Snow"], ["email", "test4@example.com"], ["encrypted_password", "$2a$04$hqqCd45tmFD0.a.p1.0UZOYZZIuKGUXXvQgzkvwKqBcA9RqXUKATS"], ["created_at", "2016-12-29 21:04:11.577693"], ["updated_at", "2016-12-29 21:04:11.577693"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["date", "2016-12-29"], ["rationale", "Some Rationale"], ["user_id", 4], ["created_at", "2016-12-29 21:04:11.584557"], ["updated_at", "2016-12-29 21:04:11.584557"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/posts/1/edit" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7  [["last_sign_in_at", "2016-12-29 21:04:11.588346"], ["current_sign_in_at", "2016-12-29 21:04:11.588346"], ["last_sign_in_ip", "127.0.0.1/32"], ["current_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2016-12-29 21:04:11.588947"], ["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered posts/_status.html.erb (2.2ms)
+  Rendered posts/_form.html.erb (9.5ms)
+  Rendered posts/edit.html.erb within layouts/application (11.4ms)
+  Rendered shared/_nav.html.erb (0.3ms)
+Completed 200 OK in 27ms (Views: 22.3ms | ActiveRecord: 0.4ms)
+Started PATCH "/posts/1" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"date"=>"2016-12-29", "rationale"=>"Some Rationale", "status"=>"approved"}, "commit"=>"Save", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "posts" SET "status" = $1, "updated_at" = $2 WHERE "posts"."id" = $3  [["status", 1], ["updated_at", "2016-12-29 21:04:11.639038"], ["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/posts/1
+Completed 302 Found in 6ms (ActiveRecord: 1.2ms)
+Started GET "/posts/1" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mPost Load (0.7ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered posts/show.html.erb within layouts/application (1.0ms)
+  Rendered shared/_nav.html.erb (0.4ms)
+Completed 200 OK in 7ms (Views: 4.6ms | ActiveRecord: 1.0ms)
+  [1m[35mPost Load (0.4ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'test5@example.com' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("type", "first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["type", "AdminUser"], ["first_name", "Admin"], ["last_name", "User"], ["email", "test5@example.com"], ["encrypted_password", "$2a$04$43Hfpa/EkSyexfaoaPsN..Mru8GmqDjuEFeKNhd9YcaWzT3Kk8t7G"], ["created_at", "2016-12-29 21:04:11.658803"], ["updated_at", "2016-12-29 21:04:11.658803"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'test6@example.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jon"], ["last_name", "Snow"], ["email", "test6@example.com"], ["encrypted_password", "$2a$04$6Y0fxy3/xj8MjtD.G08M4.r9FY9CJ33BTZCISBafSY.1z/hK9USRa"], ["created_at", "2016-12-29 21:04:11.664588"], ["updated_at", "2016-12-29 21:04:11.664588"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["date", "2016-12-29"], ["rationale", "Some Rationale"], ["user_id", 6], ["created_at", "2016-12-29 21:04:11.666768"], ["updated_at", "2016-12-29 21:04:11.666768"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts/2/edit" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["last_sign_in_at", "2016-12-29 21:04:11.670096"], ["current_sign_in_at", "2016-12-29 21:04:11.670096"], ["last_sign_in_ip", "127.0.0.1/32"], ["current_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2016-12-29 21:04:11.670700"], ["id", 5]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered posts/_status.html.erb (0.4ms)
+  Rendered posts/_form.html.erb (1.9ms)
+  Rendered posts/edit.html.erb within layouts/application (2.1ms)
+  Rendered shared/_nav.html.erb (0.3ms)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'test7@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Jon"], ["last_name", "Snow"], ["email", "test7@example.com"], ["encrypted_password", "$2a$04$mmQr3RS7xvLsnYp5qxBwDuMD49CIdtt0ReaivxFe8vVlSSzVCp/t6"], ["created_at", "2016-12-29 21:04:11.682403"], ["updated_at", "2016-12-29 21:04:11.682403"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts/2/edit" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["last_sign_in_at", "2016-12-29 21:04:11.684842"], ["current_sign_in_at", "2016-12-29 21:04:11.684842"], ["last_sign_in_ip", "127.0.0.1/32"], ["current_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2016-12-29 21:04:11.685413"], ["id", 7]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered posts/_form.html.erb (1.1ms)
+  Rendered posts/edit.html.erb within layouts/application (1.3ms)
+  Rendered shared/_nav.html.erb (0.3ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'test8@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Jon"], ["last_name", "Snow"], ["email", "test8@example.com"], ["encrypted_password", "$2a$04$CAeJDEn50Jr6UThpy1ha.uQ5wg458L3HC/GVlhAyOj61AsqatDwqq"], ["created_at", "2016-12-29 21:04:11.700258"], ["updated_at", "2016-12-29 21:04:11.700258"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["last_sign_in_at", "2016-12-29 21:04:11.703191"], ["current_sign_in_at", "2016-12-29 21:04:11.703191"], ["last_sign_in_ip", "127.0.0.1/32"], ["current_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2016-12-29 21:04:11.703842"], ["id", 8]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered collection (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (1.3ms)
+  Rendered shared/_nav.html.erb (0.5ms)
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'test9@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Jon"], ["last_name", "Snow"], ["email", "test9@example.com"], ["encrypted_password", "$2a$04$sVtTxN4mizf2Da7iEtYuE.4d34IOnu5wBVhvHTb2XMibB084XuaUC"], ["created_at", "2016-12-29 21:04:11.716750"], ["updated_at", "2016-12-29 21:04:11.716750"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["last_sign_in_at", "2016-12-29 21:04:11.726632"], ["current_sign_in_at", "2016-12-29 21:04:11.726632"], ["last_sign_in_ip", "127.0.0.1/32"], ["current_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2016-12-29 21:04:11.727417"], ["id", 9]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered collection (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (0.6ms)
+  Rendered shared/_nav.html.erb (0.4ms)
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'test10@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Jon"], ["last_name", "Snow"], ["email", "test10@example.com"], ["encrypted_password", "$2a$04$XrlgHyvKO5r9xPhewBGIm.NHrXdAT8KVyzDyO9AMktT2uxld0hFAm"], ["created_at", "2016-12-29 21:04:11.739548"], ["updated_at", "2016-12-29 21:04:11.739548"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["last_sign_in_at", "2016-12-29 21:04:11.742156"], ["current_sign_in_at", "2016-12-29 21:04:11.742156"], ["last_sign_in_ip", "127.0.0.1/32"], ["current_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2016-12-29 21:04:11.742796"], ["id", 10]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered collection (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (0.6ms)
+  Rendered shared/_nav.html.erb (0.4ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.2ms)
+Started GET "/posts" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+Processing by PostsController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 10]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered collection (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (0.6ms)
+  Rendered shared/_nav.html.erb (0.4ms)
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'test13@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Jon"], ["last_name", "Snow"], ["email", "test13@example.com"], ["encrypted_password", "$2a$04$YB065C67L.M3H1aZJKkrpukEGc8LbuSG9Qy4OPHZif5rE2G9CP1ua"], ["created_at", "2016-12-29 21:04:11.765172"], ["updated_at", "2016-12-29 21:04:11.765172"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["last_sign_in_at", "2016-12-29 21:04:11.767819"], ["current_sign_in_at", "2016-12-29 21:04:11.767819"], ["last_sign_in_ip", "127.0.0.1/32"], ["current_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2016-12-29 21:04:11.768537"], ["id", 11]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticController#homepage as HTML
+  Rendered static/homepage.html.erb within layouts/application (0.1ms)
+  Rendered shared/_nav.html.erb (0.4ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+Started GET "/posts/new" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 11]]
+  Rendered posts/_form.html.erb (1.0ms)
+  Rendered posts/new.html.erb within layouts/application (1.4ms)
+  Rendered shared/_nav.html.erb (0.3ms)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'test14@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Jon"], ["last_name", "Snow"], ["email", "test14@example.com"], ["encrypted_password", "$2a$04$R7MWuzooW1N/x6l0EU6GEuNEjUHfsx5DE2LwAFtad1ZqBIEpDqzoi"], ["created_at", "2016-12-29 21:04:11.787236"], ["updated_at", "2016-12-29 21:04:11.787236"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'test15@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Jon"], ["last_name", "Snow"], ["email", "test15@example.com"], ["encrypted_password", "$2a$04$agwci.NOf6aqJ1rJo.PFuOOog1LoxkNQFL3Cntrqf9aaD6/0u7hkG"], ["created_at", "2016-12-29 21:04:11.791398"], ["updated_at", "2016-12-29 21:04:11.791398"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["date", "2016-12-29"], ["rationale", "Some Rationale"], ["user_id", 13], ["created_at", "2016-12-29 21:04:11.793338"], ["updated_at", "2016-12-29 21:04:11.793338"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/posts" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7  [["last_sign_in_at", "2016-12-29 21:04:11.795836"], ["current_sign_in_at", "2016-12-29 21:04:11.795836"], ["last_sign_in_ip", "127.0.0.1/32"], ["current_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2016-12-29 21:04:11.796452"], ["id", 12]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 13]]
+  Rendered posts/_post.html.erb (2.3ms)
+  Rendered posts/index.html.erb within layouts/application (4.4ms)
+  Rendered shared/_nav.html.erb (0.3ms)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.6ms)
+Started DELETE "/posts/3" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+Processing by PostsController#destroy as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 12]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 3]]
+Redirected to http://www.example.com/posts
+Completed 302 Found in 3ms (ActiveRecord: 0.8ms)
+Started GET "/posts" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 12]]
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered collection (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (0.7ms)
+  Rendered shared/_nav.html.erb (0.3ms)
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'test16@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jon"], ["last_name", "Snow"], ["email", "test16@example.com"], ["encrypted_password", "$2a$04$dFv5YH5iPVhHqnCGCT.lFOEgApFxu6TZNw6ICgGczbT2rIZ.aCjKu"], ["created_at", "2016-12-29 21:04:11.821991"], ["updated_at", "2016-12-29 21:04:11.821991"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/posts/new" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7  [["last_sign_in_at", "2016-12-29 21:04:11.824310"], ["current_sign_in_at", "2016-12-29 21:04:11.824310"], ["last_sign_in_ip", "127.0.0.1/32"], ["current_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2016-12-29 21:04:11.824865"], ["id", 14]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (1.1ms)
+  Rendered posts/new.html.erb within layouts/application (1.2ms)
+  Rendered shared/_nav.html.erb (0.3ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'test17@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Jon"], ["last_name", "Snow"], ["email", "test17@example.com"], ["encrypted_password", "$2a$04$Hgbxbc316nQbKFWHAduSJepY7m5YplpLqEjc/1r28QaZL2Rf8VmMa"], ["created_at", "2016-12-29 21:04:11.835251"], ["updated_at", "2016-12-29 21:04:11.835251"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["last_sign_in_at", "2016-12-29 21:04:11.838188"], ["current_sign_in_at", "2016-12-29 21:04:11.838188"], ["last_sign_in_ip", "127.0.0.1/32"], ["current_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2016-12-29 21:04:11.838814"], ["id", 15]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (1.3ms)
+  Rendered posts/new.html.erb within layouts/application (1.4ms)
+  Rendered shared/_nav.html.erb (0.3ms)
+Completed 200 OK in 3ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+Started POST "/posts" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"date"=>"2016-12-29", "rationale"=>"Some rationale"}, "commit"=>"Save"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 15]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["date", "2016-12-29"], ["rationale", "Some rationale"], ["user_id", 15], ["created_at", "2016-12-29 21:04:11.851047"], ["updated_at", "2016-12-29 21:04:11.851047"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/posts/4
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
+Started GET "/posts/4" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 15]]
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered posts/show.html.erb within layouts/application (0.3ms)
+  Rendered shared/_nav.html.erb (0.3ms)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'test18@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jon"], ["last_name", "Snow"], ["email", "test18@example.com"], ["encrypted_password", "$2a$04$r96TAqb6Nd4/IDMywjECXuvqy9bA..zLxT9aPiaDfsgJuUOwyD1BC"], ["created_at", "2016-12-29 21:04:11.865375"], ["updated_at", "2016-12-29 21:04:11.865375"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/posts/new" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7  [["last_sign_in_at", "2016-12-29 21:04:11.867606"], ["current_sign_in_at", "2016-12-29 21:04:11.867606"], ["last_sign_in_ip", "127.0.0.1/32"], ["current_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2016-12-29 21:04:11.868235"], ["id", 16]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (1.2ms)
+  Rendered posts/new.html.erb within layouts/application (1.4ms)
+  Rendered shared/_nav.html.erb (0.4ms)
+Completed 200 OK in 3ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+Started POST "/posts" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"date"=>"2016-12-29", "rationale"=>"User Association"}, "commit"=>"Save"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 16]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["date", "2016-12-29"], ["rationale", "User Association"], ["user_id", 16], ["created_at", "2016-12-29 21:04:11.880553"], ["updated_at", "2016-12-29 21:04:11.880553"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/posts/5
+Completed 302 Found in 4ms (ActiveRecord: 0.9ms)
+Started GET "/posts/5" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 16]]
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  Rendered posts/show.html.erb within layouts/application (0.2ms)
+  Rendered shared/_nav.html.erb (0.3ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.3ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1  ORDER BY "posts"."id" DESC LIMIT 1[0m  [["user_id", 16]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'test19@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Jon"], ["last_name", "Snow"], ["email", "test19@example.com"], ["encrypted_password", "$2a$04$WBeYvKiMsQglwrSReIFbeOy5pGcIVmF1lpEU8sv4Rv3beSoS4ak3m"], ["created_at", "2016-12-29 21:04:11.893250"], ["updated_at", "2016-12-29 21:04:11.893250"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'test20@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Jon"], ["last_name", "Snow"], ["email", "test20@example.com"], ["encrypted_password", "$2a$04$wIgcktIHxL8yfhOBScXZreillS8OqA/CWj.Ylgct/V/xzTFvu26ai"], ["created_at", "2016-12-29 21:04:11.897535"], ["updated_at", "2016-12-29 21:04:11.897535"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["date", "2016-12-29"], ["rationale", "Some Rationale"], ["user_id", 18], ["created_at", "2016-12-29 21:04:11.899167"], ["updated_at", "2016-12-29 21:04:11.899167"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/posts" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7  [["last_sign_in_at", "2016-12-29 21:04:11.901300"], ["current_sign_in_at", "2016-12-29 21:04:11.901300"], ["last_sign_in_ip", "127.0.0.1/32"], ["current_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2016-12-29 21:04:11.901903"], ["id", 17]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 18]]
+  Rendered posts/_post.html.erb (1.1ms)
+  Rendered posts/index.html.erb within layouts/application (1.9ms)
+  Rendered shared/_nav.html.erb (0.3ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.5ms)
+Started GET "/posts/6/edit" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 17]]
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  Rendered posts/_form.html.erb (1.0ms)
+  Rendered posts/edit.html.erb within layouts/application (1.1ms)
+  Rendered shared/_nav.html.erb (0.3ms)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'test21@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Jon"], ["last_name", "Snow"], ["email", "test21@example.com"], ["encrypted_password", "$2a$04$/QjvXahywbdmY70ZSDacfOrZnNJoAiZrsDOs1oUMfjPucyetCydju"], ["created_at", "2016-12-29 21:04:11.920176"], ["updated_at", "2016-12-29 21:04:11.920176"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'test22@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Jon"], ["last_name", "Snow"], ["email", "test22@example.com"], ["encrypted_password", "$2a$04$JTCNwU0OVYJRAC2E0r3j3uN.bZmugfIRpVb0k.6kl/4BbaIXt75EC"], ["created_at", "2016-12-29 21:04:11.925086"], ["updated_at", "2016-12-29 21:04:11.925086"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["date", "2016-12-29"], ["rationale", "Some Rationale"], ["user_id", 20], ["created_at", "2016-12-29 21:04:11.926790"], ["updated_at", "2016-12-29 21:04:11.926790"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/posts/7/edit" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7  [["last_sign_in_at", "2016-12-29 21:04:11.928883"], ["current_sign_in_at", "2016-12-29 21:04:11.928883"], ["last_sign_in_ip", "127.0.0.1/32"], ["current_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2016-12-29 21:04:11.929548"], ["id", 19]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 7]]
+  Rendered posts/_form.html.erb (1.1ms)
+  Rendered posts/edit.html.erb within layouts/application (1.2ms)
+  Rendered shared/_nav.html.erb (0.3ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.1ms)
+Started PATCH "/posts/7" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"date"=>"2016-12-29", "rationale"=>"Edited content"}, "commit"=>"Save", "id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 19]]
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "posts" SET "rationale" = $1, "updated_at" = $2 WHERE "posts"."id" = $3  [["rationale", "Edited content"], ["updated_at", "2016-12-29 21:04:11.942080"], ["id", 7]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/posts/7
+Completed 302 Found in 5ms (ActiveRecord: 1.2ms)
+Started GET "/posts/7" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 19]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  Rendered posts/show.html.erb within layouts/application (0.3ms)
+  Rendered shared/_nav.html.erb (0.4ms)
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+Processing by StaticController#homepage as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-12-29 14:04:11 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (1.5ms)
+  Rendered shared/_nav.html.erb (0.3ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'test23@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Jon"], ["last_name", "Snow"], ["email", "test23@example.com"], ["encrypted_password", "$2a$04$mk4k21c2YloJxR1oM4YzGeL9xK/LXYW/rwwubric1CsqPWa8q9Z46"], ["created_at", "2016-12-29 21:04:11.967957"], ["updated_at", "2016-12-29 21:04:11.967957"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'test24@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Jon"], ["last_name", "Snow"], ["email", "test24@example.com"], ["encrypted_password", "$2a$04$k6xknYgdgMJ.sxgir4CXdOUu5oK.hZxxpC0h7Ihg9ZV/AYINxcbEG"], ["created_at", "2016-12-29 21:04:11.973692"], ["updated_at", "2016-12-29 21:04:11.973692"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["date", "2016-12-29"], ["rationale", "Some Rationale"], ["user_id", 22], ["created_at", "2016-12-29 21:04:11.975608"], ["updated_at", "2016-12-29 21:04:11.975608"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'test25@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jon"], ["last_name", "Snow"], ["email", "test25@example.com"], ["encrypted_password", "$2a$04$vuZ.7VHxMdzmqgWz4N5e2OrTMpgyVPkS9tSpUkNNlj109eMZWVBUK"], ["created_at", "2016-12-29 21:04:11.982123"], ["updated_at", "2016-12-29 21:04:11.982123"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'test26@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jon"], ["last_name", "Snow"], ["email", "test26@example.com"], ["encrypted_password", "$2a$04$WshaVClwEgUN4Zwdl0TC2.rOZptLr7IVVNrJjl1.HjEwThCqSwyua"], ["created_at", "2016-12-29 21:04:11.986423"], ["updated_at", "2016-12-29 21:04:11.986423"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["date", "2016-12-29"], ["rationale", "Some Rationale"], ["user_id", 24], ["created_at", "2016-12-29 21:04:11.988027"], ["updated_at", "2016-12-29 21:04:11.988027"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'test27@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Jon"], ["last_name", "Snow"], ["email", "test27@example.com"], ["encrypted_password", "$2a$04$/jKq.ynnQGfoEiDu2f8qc.1kwNC/iSuwFxONxQQk0qQ3okb6XoNym"], ["created_at", "2016-12-29 21:04:11.994205"], ["updated_at", "2016-12-29 21:04:11.994205"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'test28@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Jon"], ["last_name", "Snow"], ["email", "test28@example.com"], ["encrypted_password", "$2a$04$cXBBUsdYiYMTo4QNeUwULuABecqOEPNtdybxamdPBrg8uAPfxrxPG"], ["created_at", "2016-12-29 21:04:11.999244"], ["updated_at", "2016-12-29 21:04:11.999244"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'test29@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Jon"], ["last_name", "Snow"], ["email", "test29@example.com"], ["encrypted_password", "$2a$04$WPBXGgwBYt4Jy/k6sS3vU.XjqHvtWmx7ureEX7WTgfn06u32zzCJ6"], ["created_at", "2016-12-29 21:04:12.005493"], ["updated_at", "2016-12-29 21:04:12.005493"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
