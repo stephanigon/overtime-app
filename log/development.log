@@ -15644,3 +15644,385 @@ Processing by PostsController#index as HTML
   Rendered shared/_nav.html.erb (0.4ms)
   Rendered shared/_alerts.html.erb (0.1ms)
 Completed 200 OK in 153ms (Views: 148.4ms | ActiveRecord: 2.8ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddPostHourRequestToPosts (20170103163034)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (24.4ms)[0m  [1mALTER TABLE "posts" ADD "overtime_request" decimal DEFAULT 0.0[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"  [["version", "20170103163034"]]
+  [1m[36m (10.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (3.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'ar_internal_metadata'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'posts'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (4.9ms)[0m  DROP TABLE "ar_internal_metadata" CASCADE
+  [1m[36m (6.6ms)[0m  [1mCREATE TABLE "ar_internal_metadata" ("key" serial primary key, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.7ms)[0m  DROP TABLE "posts" CASCADE
+  [1m[36m (5.8ms)[0m  [1mCREATE TABLE "posts" ("id" serial primary key, "date" date, "rationale" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "user_id" integer, "status" integer DEFAULT 0, "overtime_request" decimal DEFAULT 0.0) [0m
+  [1m[35m (1.7ms)[0m  CREATE  INDEX  "index_posts_on_user_id" ON "posts" USING btree ("user_id")
+  [1m[36m (3.6ms)[0m  [1mDROP TABLE "users" CASCADE[0m
+  [1m[35m (5.3ms)[0m  CREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "first_name" character varying, "last_name" character varying, "type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.3ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (1.3ms)[0m  CREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")
+  [1m[36m (3.4ms)[0m  [1mALTER TABLE "posts" ADD CONSTRAINT "fk_rails_5b5ddfd518"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.5ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (4.5ms)[0m  DROP TABLE "ar_internal_metadata" CASCADE
+  [1m[36m (8.3ms)[0m  [1mCREATE TABLE "ar_internal_metadata" ("key" serial primary key, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (4.6ms)[0m  DROP TABLE "posts" CASCADE
+  [1m[36m (5.3ms)[0m  [1mCREATE TABLE "posts" ("id" serial primary key, "date" date, "rationale" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "user_id" integer, "status" integer DEFAULT 0, "overtime_request" decimal DEFAULT 0.0) [0m
+  [1m[35m (1.7ms)[0m  CREATE  INDEX  "index_posts_on_user_id" ON "posts" USING btree ("user_id")
+  [1m[36m (3.1ms)[0m  [1mDROP TABLE "users" CASCADE[0m
+  [1m[35m (5.4ms)[0m  CREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "first_name" character varying, "last_name" character varying, "type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.7ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (1.5ms)[0m  CREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")
+  [1m[36m (2.6ms)[0m  [1mALTER TABLE "posts" ADD CONSTRAINT "fk_rails_5b5ddfd518"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (1.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'test@test.com' LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["email", "test@test.com"], ["encrypted_password", "$2a$11$PXTDZCfyp0hFdv780P18vOI4zRoZvXThsU3a3sMpLyP5ueb78usi6"], ["first_name", "Jon"], ["last_name", "Snow"], ["created_at", "2017-01-03 17:39:53.305003"], ["updated_at", "2017-01-03 17:39:53.305003"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@test.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("type", "email", "encrypted_password", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["type", "AdminUser"], ["email", "admin@test.com"], ["encrypted_password", "$2a$11$CC54C/Z4V1bo6I/j7WY/qumVrDQ9ApZeGh6lw/q8YP9cM3kv41Lgq"], ["first_name", "Admin"], ["last_name", "Name"], ["created_at", "2017-01-03 17:39:53.443823"], ["updated_at", "2017-01-03 17:39:53.443823"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "0 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.456833"], ["updated_at", "2017-01-03 17:39:53.456833"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "1 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.460489"], ["updated_at", "2017-01-03 17:39:53.460489"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "2 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.463093"], ["updated_at", "2017-01-03 17:39:53.463093"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "3 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.466232"], ["updated_at", "2017-01-03 17:39:53.466232"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "4 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.469390"], ["updated_at", "2017-01-03 17:39:53.469390"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "5 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.472271"], ["updated_at", "2017-01-03 17:39:53.472271"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "6 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.475079"], ["updated_at", "2017-01-03 17:39:53.475079"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "7 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.477544"], ["updated_at", "2017-01-03 17:39:53.477544"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "8 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.479572"], ["updated_at", "2017-01-03 17:39:53.479572"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "9 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.482030"], ["updated_at", "2017-01-03 17:39:53.482030"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "10 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.485162"], ["updated_at", "2017-01-03 17:39:53.485162"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "11 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.487482"], ["updated_at", "2017-01-03 17:39:53.487482"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "12 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.489279"], ["updated_at", "2017-01-03 17:39:53.489279"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "13 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.492624"], ["updated_at", "2017-01-03 17:39:53.492624"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "14 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.494447"], ["updated_at", "2017-01-03 17:39:53.494447"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "15 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.496202"], ["updated_at", "2017-01-03 17:39:53.496202"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "16 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.497891"], ["updated_at", "2017-01-03 17:39:53.497891"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "17 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.500149"], ["updated_at", "2017-01-03 17:39:53.500149"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "18 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.502805"], ["updated_at", "2017-01-03 17:39:53.502805"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "19 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.504902"], ["updated_at", "2017-01-03 17:39:53.504902"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "20 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.506979"], ["updated_at", "2017-01-03 17:39:53.506979"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "21 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.508700"], ["updated_at", "2017-01-03 17:39:53.508700"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "22 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.510431"], ["updated_at", "2017-01-03 17:39:53.510431"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "23 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.512090"], ["updated_at", "2017-01-03 17:39:53.512090"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "24 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.513871"], ["updated_at", "2017-01-03 17:39:53.513871"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "25 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.515803"], ["updated_at", "2017-01-03 17:39:53.515803"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "26 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.517631"], ["updated_at", "2017-01-03 17:39:53.517631"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "27 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.519511"], ["updated_at", "2017-01-03 17:39:53.519511"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "28 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.521565"], ["updated_at", "2017-01-03 17:39:53.521565"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "29 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.523281"], ["updated_at", "2017-01-03 17:39:53.523281"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "30 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.524960"], ["updated_at", "2017-01-03 17:39:53.524960"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "31 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.526662"], ["updated_at", "2017-01-03 17:39:53.526662"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "32 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.528626"], ["updated_at", "2017-01-03 17:39:53.528626"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "33 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.530842"], ["updated_at", "2017-01-03 17:39:53.530842"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "34 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.532762"], ["updated_at", "2017-01-03 17:39:53.532762"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "35 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.534457"], ["updated_at", "2017-01-03 17:39:53.534457"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "36 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.536105"], ["updated_at", "2017-01-03 17:39:53.536105"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "37 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.537810"], ["updated_at", "2017-01-03 17:39:53.537810"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "38 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.539473"], ["updated_at", "2017-01-03 17:39:53.539473"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "39 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.541138"], ["updated_at", "2017-01-03 17:39:53.541138"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "40 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.542881"], ["updated_at", "2017-01-03 17:39:53.542881"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "41 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.544499"], ["updated_at", "2017-01-03 17:39:53.544499"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "42 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.546166"], ["updated_at", "2017-01-03 17:39:53.546166"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "43 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.548323"], ["updated_at", "2017-01-03 17:39:53.548323"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "44 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.550815"], ["updated_at", "2017-01-03 17:39:53.550815"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "45 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.552827"], ["updated_at", "2017-01-03 17:39:53.552827"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "46 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.554499"], ["updated_at", "2017-01-03 17:39:53.554499"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "47 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.556176"], ["updated_at", "2017-01-03 17:39:53.556176"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "48 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.557997"], ["updated_at", "2017-01-03 17:39:53.557997"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "49 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.559978"], ["updated_at", "2017-01-03 17:39:53.559978"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "50 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.561720"], ["updated_at", "2017-01-03 17:39:53.561720"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "51 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.563695"], ["updated_at", "2017-01-03 17:39:53.563695"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "52 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.565844"], ["updated_at", "2017-01-03 17:39:53.565844"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "53 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.567695"], ["updated_at", "2017-01-03 17:39:53.567695"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "54 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.569448"], ["updated_at", "2017-01-03 17:39:53.569448"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "55 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.571192"], ["updated_at", "2017-01-03 17:39:53.571192"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "56 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.572842"], ["updated_at", "2017-01-03 17:39:53.572842"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "57 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.574506"], ["updated_at", "2017-01-03 17:39:53.574506"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "58 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.576145"], ["updated_at", "2017-01-03 17:39:53.576145"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "59 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.578271"], ["updated_at", "2017-01-03 17:39:53.578271"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "60 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.580727"], ["updated_at", "2017-01-03 17:39:53.580727"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "61 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.582788"], ["updated_at", "2017-01-03 17:39:53.582788"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "62 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.584412"], ["updated_at", "2017-01-03 17:39:53.584412"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "63 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.586094"], ["updated_at", "2017-01-03 17:39:53.586094"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "64 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.587775"], ["updated_at", "2017-01-03 17:39:53.587775"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "65 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.589399"], ["updated_at", "2017-01-03 17:39:53.589399"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "66 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.591092"], ["updated_at", "2017-01-03 17:39:53.591092"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "67 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.592770"], ["updated_at", "2017-01-03 17:39:53.592770"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "68 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.594494"], ["updated_at", "2017-01-03 17:39:53.594494"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "69 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.596152"], ["updated_at", "2017-01-03 17:39:53.596152"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "70 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.597782"], ["updated_at", "2017-01-03 17:39:53.597782"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "71 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.599474"], ["updated_at", "2017-01-03 17:39:53.599474"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "72 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.601219"], ["updated_at", "2017-01-03 17:39:53.601219"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "73 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.603149"], ["updated_at", "2017-01-03 17:39:53.603149"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "74 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.605513"], ["updated_at", "2017-01-03 17:39:53.605513"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "75 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.607518"], ["updated_at", "2017-01-03 17:39:53.607518"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "76 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.609276"], ["updated_at", "2017-01-03 17:39:53.609276"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "77 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.611058"], ["updated_at", "2017-01-03 17:39:53.611058"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "78 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.612748"], ["updated_at", "2017-01-03 17:39:53.612748"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "79 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.614368"], ["updated_at", "2017-01-03 17:39:53.614368"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "80 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.616070"], ["updated_at", "2017-01-03 17:39:53.616070"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "81 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.617718"], ["updated_at", "2017-01-03 17:39:53.617718"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "82 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.619384"], ["updated_at", "2017-01-03 17:39:53.619384"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "83 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.621063"], ["updated_at", "2017-01-03 17:39:53.621063"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "84 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.622775"], ["updated_at", "2017-01-03 17:39:53.622775"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "85 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.624378"], ["updated_at", "2017-01-03 17:39:53.624378"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "86 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.626001"], ["updated_at", "2017-01-03 17:39:53.626001"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "87 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.627613"], ["updated_at", "2017-01-03 17:39:53.627613"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "88 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.629340"], ["updated_at", "2017-01-03 17:39:53.629340"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "89 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.631270"], ["updated_at", "2017-01-03 17:39:53.631270"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "90 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.632932"], ["updated_at", "2017-01-03 17:39:53.632932"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "91 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.634731"], ["updated_at", "2017-01-03 17:39:53.634731"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "92 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.636364"], ["updated_at", "2017-01-03 17:39:53.636364"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "93 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.638093"], ["updated_at", "2017-01-03 17:39:53.638093"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "94 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.639738"], ["updated_at", "2017-01-03 17:39:53.639738"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "95 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.641482"], ["updated_at", "2017-01-03 17:39:53.641482"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "96 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.643312"], ["updated_at", "2017-01-03 17:39:53.643312"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "97 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.645369"], ["updated_at", "2017-01-03 17:39:53.645369"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2017-01-03"], ["rationale", "98 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.647469"], ["updated_at", "2017-01-03 17:39:53.647469"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("date", "rationale", "user_id", "overtime_request", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["date", "2017-01-03"], ["rationale", "99 rationale content"], ["user_id", 1], ["overtime_request", "2.5"], ["created_at", "2017-01-03 17:39:53.649374"], ["updated_at", "2017-01-03 17:39:53.649374"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
