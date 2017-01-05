@@ -29097,3 +29097,29 @@ Link: http://localhost:3000/
 From the mailer robot.
 
 [ActiveJob] [ActionMailer::DeliveryJob] [76004cce-5a22-4a5f-8a01-f7995712fa58] Performed ActionMailer::DeliveryJob from Inline(mailers) in 427.75ms
+  [1m[36mPost Load (1.3ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."status" = $1[0m  [["status", 0]]
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "posts" WHERE "posts"."status" = $1[0m  [["status", 0]]
+  [1m[35mAdminUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."type" IN ('AdminUser')
+  Rendered manager_mailer/email.text.erb within layouts/mailer (1.4ms)
+
+ManagerMailer#email: processed outbound mail in 145.6ms
+
+Sent mail to admin@test.com (8.8ms)
+Date: Thu, 05 Jan 2017 14:31:31 -0700
+From: from@example.com
+To: admin@test.com
+Message-ID: <586ebb3359edc_115703fe7cb83fa0c9282d@Stephanies-MBP.mail>
+Subject: Daily Overtime Request Email
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi NAME, ADMIN,
+
+There are new overtime requests for you to review. Please click this link to access them.
+
+Link: http://localhost:3000/
+
+From the mailer robot.
+
