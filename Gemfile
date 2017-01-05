@@ -9,7 +9,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-
+gem 'twilio', '~> 3.1', '>= 3.1.1'
 
 group :development, :test do
   gem 'byebug'
@@ -31,6 +31,5 @@ gem 'administrate' , '~>0.2.2'
 gem 'bourbon'
 gem 'pundit', '~> 1.1'
 gem 'puma' , ' ~> 3.4'
-gem 'twilio-ruby', '~> 4.11', '~> 4.11.1'
 gem 'dotenv-rails' , :groups => [:development, :test]
 gem 'kaminari', '~>0.17.0'
