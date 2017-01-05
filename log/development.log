@@ -29070,3 +29070,30 @@ ActionController::RoutingError (No route matches [GET] "/assets/employee_homepag
 
 
 Started GET "/assets/admin_homepage.css" for ::1 at 2017-01-05 12:23:36 -0700
+  [1m[36mAdminUser Load (1.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."type" IN ('AdminUser')  ORDER BY "users"."id" DESC LIMIT 1[0m
+[ActiveJob]   [1m[35mAdminUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."type" IN ('AdminUser') AND "users"."id" = $1 LIMIT 1  [["id", 2]]
+[ActiveJob] [ActionMailer::DeliveryJob] [76004cce-5a22-4a5f-8a01-f7995712fa58] Performing ActionMailer::DeliveryJob from Inline(mailers) with arguments: "ManagerMailer", "email", "deliver_now", gid://overtime/AdminUser/2
+[ActiveJob] [ActionMailer::DeliveryJob] [76004cce-5a22-4a5f-8a01-f7995712fa58]   Rendered manager_mailer/email.text.erb within layouts/mailer (2.9ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [76004cce-5a22-4a5f-8a01-f7995712fa58] 
+ManagerMailer#email: processed outbound mail in 383.6ms
+[ActiveJob] [ActionMailer::DeliveryJob] [76004cce-5a22-4a5f-8a01-f7995712fa58] 
+Sent mail to admin@test.com (29.9ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [76004cce-5a22-4a5f-8a01-f7995712fa58] Date: Thu, 05 Jan 2017 14:19:57 -0700
+From: from@example.com
+To: admin@test.com
+Message-ID: <586eb87d30c16_111083ff03e03fa0c77994@Stephanies-MBP.mail>
+Subject: Daily Overtime Request Email
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi NAME, ADMIN,
+
+There are new overtime requests for you to review. Please click this link to access them.
+
+Link: http://localhost:3000/
+
+From the mailer robot.
+
+[ActiveJob] [ActionMailer::DeliveryJob] [76004cce-5a22-4a5f-8a01-f7995712fa58] Performed ActionMailer::DeliveryJob from Inline(mailers) in 427.75ms
