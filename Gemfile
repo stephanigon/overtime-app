@@ -33,3 +33,4 @@ gem 'pundit', '~> 1.1'
 gem 'puma' , ' ~> 3.4'
 gem 'dotenv-rails' , :groups => [:development, :test]
 gem 'kaminari', '~>0.17.0'
+gem 'rails_12factor'
