@@ -15,7 +15,7 @@
 - X Email summary to managers for approval
 - X Needs to be documented if employee did not log overtime
 - X update end_date when confirmed
-- updated audit log status when overtime rejected
+- X updated audit log status when overtime rejected
 - update buttons on employee homepage to show on mobile
 - update buttons to include time span
 - update button sort order on employee homepage
