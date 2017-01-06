@@ -22,8 +22,8 @@
 - X remove unnecessary nav bar buttons for managers
 - X fix admin dashboard bug
 - X implement honeybadger error reporting
-- implement new relic for keeping the site alive
-- check on data issue and verify that correct hours are being tracked
+- X implement new relic for keeping the site alive
+- X check on data issue and verify that correct hours are being tracked
 
 ##TODOS:
 
