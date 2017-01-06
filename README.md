@@ -14,7 +14,7 @@
 - X Block non admin and guest users
 - X Email summary to managers for approval
 - X Needs to be documented if employee did not log overtime
-- update end_date when confirmed
+- X update end_date when confirmed
 - updated audit log status when overtime rejected
 - update buttons on employee homepage to show on mobile
 - update buttons to include time span
@@ -23,6 +23,7 @@
 - fix admin dashboard bug
 - implement honeybadger error reporting
 - implement new relic for keeping the site alive
+- check on data issue and verify that correct hours are being tracked
 
 ##TODOS:
 
