@@ -16,12 +16,12 @@
 - X Needs to be documented if employee did not log overtime
 - X update end_date when confirmed
 - X updated audit log status when overtime rejected
-- update buttons on employee homepage to show on mobile
-- update buttons to include time span
-- update button sort order on employee homepage
-- remove unnecessary nav bar buttons for managers
-- fix admin dashboard bug
-- implement honeybadger error reporting
+- X update buttons on employee homepage to show on mobile
+- X update buttons to include time span
+- X update button sort order on employee homepage
+- X remove unnecessary nav bar buttons for managers
+- X fix admin dashboard bug
+- X implement honeybadger error reporting
 - implement new relic for keeping the site alive
 - check on data issue and verify that correct hours are being tracked
 
